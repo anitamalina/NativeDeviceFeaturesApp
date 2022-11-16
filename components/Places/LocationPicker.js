@@ -107,6 +107,7 @@ export default function LocationPicker({ onPickLocation }) {
         <OutlinedButton icon="location" onPress={getLocation}>
           Locate User
         </OutlinedButton>
+        <View style={styles.spaceBetween}></View>
         <OutlinedButton icon="map" onPress={pickOnMap}>
           Pick on Map
         </OutlinedButton>
@@ -125,9 +126,12 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary100,
     borderRadius: 4,
   },
+  spaceBetween: {
+    width: "3%",
+  },
   buttons: {
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     alignItems: "center",
   },
   image: {

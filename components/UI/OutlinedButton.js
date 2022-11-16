@@ -18,12 +18,14 @@ const styles = StyleSheet.create({
   button: {
     paddingHorizontal: 12,
     paddingVertical: 6,
-    margin: 4,
+    marginVertical: 4,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
     borderWidth: 3,
     borderColor: Colors.primary500,
+    borderRadius: 4,
+    flex: 1,
   },
   pressed: {
     opacity: 0.7,

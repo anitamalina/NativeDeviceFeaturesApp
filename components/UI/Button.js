@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   button: {
     paddingHorizontal: 12,
     paddingVertical: 8,
-    margin: 4,
+    marginTop: 20,
     backgroundColor: Colors.primary800,
     elevation: 2,
     shadowColor: "black",
@@ -32,6 +32,6 @@ const styles = StyleSheet.create({
   text: {
     textAlign: "center",
     fontSize: 16,
-    color: Colors.primary50,
+    color: Colors.primary700,
   },
 });
