@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, ScollView, Image } from "react-native";
+import React, { useEffect } from "react";
+import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
 import OutlinedButton from "../components/UI/OutlinedButton";
 import { Colors } from "../constants/Colors";
 
@@ -14,7 +14,7 @@ export default function DetailPlace({ route }) {
   }, [selectedPlaceId]);
 
   return (
-    <ScollView>
+    <ScrollView>
       <Image style={styles.image} />
       <View style={styles.locationContainer}>
         <View style={styles.addressContainer}>
@@ -22,7 +22,7 @@ export default function DetailPlace({ route }) {
         </View>
         <OutlinedButton icon="map" onPress={showOnMap} />
       </View>
-    </ScollView>
+    </ScrollView>
   );
 }
 
