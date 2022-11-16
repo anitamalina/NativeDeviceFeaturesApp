@@ -5,7 +5,7 @@ export default function PlaceItem({ place, onSelect }) {
   return (
     <Pressable
       style={({ pressed }) => [styles.item, pressed && styles.pressed]}
-      onPress={onSelect.bind(this, place.id)}
+      onPress={onSelect}
     >
       <Image style={styles.image} source={{ uri: place.imageURI }} />
       <View style={styles.info}>

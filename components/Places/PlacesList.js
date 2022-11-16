@@ -28,7 +28,7 @@ export default function PlacesList({ places }) {
       data={places}
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => (
-        <PlaceItem place={item} onSelect={selectPlace} />
+        <PlaceItem place={item} onSelect={() => selectPlace(item.id)} />
       )}
     />
   );
