@@ -8,7 +8,7 @@ export default function PlacesList({ places }) {
 
   function selectPlace(id) {
     console.log("selectPlace id: ", id);
-    navigation.navigate("DetailPlace", {
+    navigation.navigate("PlaceDetails", {
       placeId: id,
     });
   }

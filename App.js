@@ -11,7 +11,7 @@ import IconButton from "./components/UI/IconButton";
 import Map from "./screens/Map";
 import { useEffect, useState } from "react";
 import { init } from "./util/database";
-import DetailPlace from "./screens/DetailPlace";
+import PlaceDetails from "./screens/PlaceDetails";
 
 const Stack = createNativeStackNavigator();
 
@@ -69,8 +69,9 @@ export default function App() {
             options={{ title: "Add a new Place" }}
           ></Stack.Screen>
           <Stack.Screen
-            name="DetailPlace"
-            component={DetailPlace}
+            name="PlaceDetails"
+            component={PlaceDetails}
+            options={{ title: "Loading Place..." }}
           ></Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>

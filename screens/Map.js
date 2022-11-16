@@ -8,18 +8,27 @@ import { Alert, StyleSheet } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import IconButton from "../components/UI/IconButton";
 
-export default function Map({ navigation }) {
-  const [selectedLocation, setSelectedLocation] = useState({ lat: 0, lng: 0 });
+export default function Map({ navigation, route }) {
+  const initialLocation = route.params && {
+    lat: route.params.initialLat,
+    lng: route.params.initialLng,
+  };
+
+  const [selectedLocation, setSelectedLocation] = useState(initialLocation);
 
   const region = {
-    latitude: 37.78,
-    longitude: -122.43,
+    latitude: initialLocation ? initialLocation.lat : 55.67,
+    longitude: initialLocation ? initialLocation.lng : 12.58,
     latitudeDelta: 0.0922,
     longitudeDelta: 0.0421,
   };
 
   function selectLocation(event) {
     //console.log(event);
+
+    if (initialLocation) {
+      return;
+    }
     const lat = event.nativeEvent.coordinate.latitude;
     const lng = event.nativeEvent.coordinate.longitude;
 
@@ -27,7 +36,7 @@ export default function Map({ navigation }) {
   }
 
   const savePickedLocation = useCallback(() => {
-    if (selectedLocation.lat === 0 && selectedLocation.lng === 0) {
+    if (!selectedLocation) {
       Alert.alert(
         "No location picked!",
         "You have to pick a location (by tapping on the map) first!"
@@ -41,7 +50,10 @@ export default function Map({ navigation }) {
     });
   }, [navigation, selectedLocation]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    if (initialLocation) {
+      return;
+    }
     navigation.setOptions({
       headerRight: ({ tintColor }) => (
         <IconButton
@@ -52,11 +64,11 @@ export default function Map({ navigation }) {
         />
       ),
     });
-  }, [navigation, savePickedLocation]);
+  }, [navigation, savePickedLocation, initialLocation]);
 
   return (
     <MapView style={styles.map} initialRegion={region} onPress={selectLocation}>
-      {selectLocation && (
+      {selectedLocation && (
         <Marker
           title="Picked Location"
           coordinate={{
