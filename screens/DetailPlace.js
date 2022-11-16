@@ -10,7 +10,7 @@ export default function DetailPlace({ route }) {
 
   useEffect(() => {
     // use selectedPlaceId to fetch data for a single place
-    console.log(selectedPlaceId);
+    console.log("selectedPlaceId", selectedPlaceId);
   }, [selectedPlaceId]);
 
   return (
